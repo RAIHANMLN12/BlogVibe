@@ -56,7 +56,8 @@ const LoginPage = ({ email: defaultEmail, password: defaultPassword }) => {
         </div>
         <div>
           <p className="phone:text-[16px] text-[20px]">
-            Don't have an account? <Link href={"/auth/signup/"}>Sign Up</Link>
+            {"Don't have an account? "}
+            <Link href="/auth/signup/">Sign Up</Link>
           </p>
         </div>
       </div>
