@@ -1,11 +1,17 @@
 "use client";
-import { useState } from "react";
+import {useState} from "react";
 import HeroSection from "@/app/component/herosection";
 import Link from "next/link";
 
-const LoginPage = ({ email: defaultEmail, password: defaultPassword }) => {
-  const [email, setEmail] = useState(defaultEmail || "");
-  const [password, setPassword] = useState(defaultPassword || "");
+const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const submit = () => {
+    console.log(email);
+    console.log(password);
+  };
+
   return (
     <div className="flex phone:flex-col tablet:flex-col laptop:flex-row desktop:flex-row h-screen">
       <HeroSection />
@@ -45,13 +51,10 @@ const LoginPage = ({ email: defaultEmail, password: defaultPassword }) => {
         <div>
           <button
             onSubmit={(e) => e.preventDefault()}
-            onClick={() => {
-              console.log("Email: ", email);
-              console.log("Password: ", password);
-            }}
+            onClick={submit}
             className="phone:text-[16px] text-[24px] phone:h-[50px] w-[200px] h-[60px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
           >
-            Login
+            <Link href="/home_screen/">Login</Link>
           </button>
         </div>
         <div>
