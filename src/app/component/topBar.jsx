@@ -1,6 +1,16 @@
-import Image from "next/image";
+"use client";
 
-const TopBar = () => {
+import Image from "next/image";
+import {useState} from "react";
+
+const TopBar = ({onTitleChange}) => {
+  const [title, setTitle] = useState("");
+  const handleTitleChange = (e) => {
+    const newTitle = e.target.value;
+    setTitle(newTitle);
+    onTitleChange(newTitle);
+  };
+
   return (
     <div className="w-full">
       <div className="flex flex-row justify-between items-center p-[30px]">
@@ -11,6 +21,8 @@ const TopBar = () => {
             name="search"
             placeholder="Search"
             autoComplete="off"
+            value={title}
+            onChange={handleTitleChange}
           />
         </div>
         <div>
